@@ -1,8 +1,8 @@
-# evergreen
+# Install and import evergreen
     Set-ExecutionPolicy bypass -Force
     Install-Module -Name evergreen -Force
     Import-Module evergreen
-    $EvergreenTMPFolder = "c:\tmp"
+    $EvergreenTMPFolder = "c:\transfer\evergreen"
 
 ## devicetrust console 64bit
 
@@ -30,8 +30,7 @@
     Start-Process $InstallApp.FullName -ArgumentList "/passive"
 
 
-## devicetrust host 64bit
-
+## devicetrust agent 64bit
     $AppName = "devicetrust"
     $App = Get-EvergreenApp -Name $AppName | where-object{$_.Type -eq "Bundle"} | sort Version -Descending | Select-Object -first 1 
     $App | Save-EvergreenApp -Path $EvergreenTMPFolder
@@ -52,5 +51,5 @@
     }
 
     Expand-Archive $DownloadApp.FullName -DestinationPath $DestinationPath -Force
-    $InstallApp = Get-ChildItem $DestinationPath | Where-Object{$_.Name -match "dthost-x64"}
+    $InstallApp = Get-ChildItem $DestinationPath | Where-Object{$_.Name -match "dtagent-x64"}
     Start-Process $InstallApp.FullName -ArgumentList "/passive"
