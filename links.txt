@@ -1,0 +1,1 @@
+https://iamroot.it/2021/10/18/using-ansible-to-connect-to-windows-using-ssh-instead-of-winrm/
