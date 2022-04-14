@@ -1,3 +1,5 @@
 https://iamroot.it/2021/10/18/using-ansible-to-connect-to-windows-using-ssh-instead-of-winrm/
 
 https://ripon-banik.medium.com/run-powershell-script-in-terraform-54d6586c2827
+
+https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
