@@ -73,6 +73,6 @@ $FirewallParams = @{
   "DisplayName"       = 'ICMP' 
   "Direction"         = 'Inbound' 
   "Action"            = 'Allow' 
-  "Protocol"          = 'ICMP'
+  "Protocol"          = 'ICMPv4'
 }
 New-NetFirewallRule @FirewallParams
