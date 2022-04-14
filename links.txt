@@ -24,3 +24,5 @@ sudo useradd --system --no-create-home --group smbgroup -s /bin/false smbuser
 sudo chown -R smbuser:smbgroup ~/share
 sudo chmod -R g+w ~/share
 sudo systemctl restart smbd
+
+https://www.oreilly.com/openbook/samba/book/ch04_08.html.
