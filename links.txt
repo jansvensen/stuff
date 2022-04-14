@@ -5,3 +5,22 @@ https://ripon-banik.medium.com/run-powershell-script-in-terraform-54d6586c2827
 https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 
 https://www.makeuseof.com/set-up-network-shared-folder-ubuntu-with-samba/
+
+[share]
+comment= Network Shared Folder by Samba Server on Ubuntu
+path = /home/localadmin/share
+force user = smbuser
+force group = smbgroup
+create mask = 0664
+force create mode = 0664
+directory mask = 0775
+force directory mode = 0775
+public = yes
+read only = no
+
+
+sudo groupadd --system smbgroup
+sudo useradd --system --no-create-home --group smbgroup -s /bin/false smbuser 
+sudo chown -R smbuser:smbgroup ~/share
+sudo chmod -R g+w ~/share
+sudo systemctl restart smbd
