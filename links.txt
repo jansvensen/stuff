@@ -26,3 +26,4 @@ sudo chmod -R g+w ~/share
 sudo systemctl restart smbd
 
 https://www.oreilly.com/openbook/samba/book/ch04_08.html.
+
