@@ -1,0 +1,2 @@
+# Example: Teams.exe
+Get-WmiObject Win32_Process -Filter "name='teams.exe'" | Select Name, @{Name="UserName";Expression={$_.GetOwner().Domain+"\"+$_.GetOwner().User}} | Select-Object -unique | Sort-Object UserName, Name
