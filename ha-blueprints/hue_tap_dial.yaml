@@ -1,12 +1,13 @@
 blueprint:
   name: Hue Tap Dial
-  description: Using a Hue bridge with which a Hue Tap Dial is paired
+  description: 'Control lights with a Philips Hue Tap Switch. Use the four buttons
+    to control up to four light(s) with an on/off toggle.'
   domain: automation
-  source_url: https://gist.github.com/codycodes/f051781c35cfdfee15162ff680c9cbd8
+  source_url: https://github.com/jansvensen/stuff/blob/main/ha-blueprints/hue_tap_dial.yaml
   input:
     dimmer_device:
       name: Dimmer Remote Device
-      description: "Your Hue dimmer remote (e.g. RWL020); check Hue integration and/or Hue app if you don't know the name"
+      description: "Your Hue Tap Dial"
       selector:
         device:
           integration: hue
