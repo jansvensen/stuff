@@ -11,49 +11,49 @@ blueprint:
       selector:
         device:
           integration: hue
-    on_short_action:
+    one_short_action:
       name: Button One Short Press Action
       description: Action to perform after pressing Button One shortly
       default: []
       selector:
         action: null
-    on_long_action:
+    one_long_action:
       name: Button One Long Press Action
       description: Action to perform after pressing Button One for a long period
       default: []
       selector:
         action: null
-    brightness_up_short_action:
+    two_short_action:
       name: Button Two Short Press Action
       description: Action to perform after pressing Button Two shortly
       default: []
       selector:
         action: null
-    brightness_up_long_action:
+    two_long_action:
       name: Button Two Long Press Action
       description: Action to perform after pressing Button Two for a long period
       default: []
       selector:
         action: null
-    brightness_down_short_action:
+    three_short_action:
       name: Button Three Short Press Action
       description: Action to perform after pressing Button Three shortly
       default: []
       selector:
         action: null
-    brightness_down_long_action:
+    three_long_action:
       name: Button Three Long Press Action
       description: Action to perform after pressing Button Three for a long period
       default: []
       selector:
         action: null
-    off_short_action:
+    four_short_action:
       name: Button Four Short Press Action
       description: Action to perform after pressing Button Four shortly
       default: []
       selector:
         action: null
-    off_long_action:
+    four_long_action:
       name: Button Four Long Press Action
       description: Action to perform after pressing Button Four for a long period
       default: []
