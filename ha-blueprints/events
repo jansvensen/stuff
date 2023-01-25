@@ -1,0 +1,13 @@
+event_type: hue_event
+data:
+  id: kitchen_dial_button
+  device_id: 523c6faf22572c24a47b61cd828e9071
+  unique_id: 1841db21-bd0f-495f-9c97-c3151ce17427
+  type: short_release
+  subtype: 1
+origin: LOCAL
+time_fired: "2023-01-25T22:06:19.451097+00:00"
+context:
+  id: 01GQNFFC9V5FEFFFNRHFDCGX2C
+  parent_id: null
+  user_id: null
