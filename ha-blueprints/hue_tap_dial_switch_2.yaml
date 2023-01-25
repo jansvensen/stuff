@@ -1,0 +1,153 @@
+---
+blueprint:
+  name: Hue Tap Dial
+  description: Using a Hue bridge with which a Hue Tap Dial is paired
+  domain: automation
+  source_url: https://github.com/jansvensen/stuff/blob/main/ha-blueprints/hue_tap_dial_switch.yaml
+  input:
+    dimmer_device:
+      name: Dimmer Remote Device
+      description: Your Hue Tap Dial
+      selector:
+        device:
+          integration: hue
+    on_short_action:
+      name: Button One Short Press Action
+      description: Action to perform after pressing Button One shortly
+      default: []
+      selector:
+        action: null
+    on_long_action:
+      name: Button One Long Press Action
+      description: Action to perform after pressing Button One for a long period
+      default: []
+      selector:
+        action: null
+    brightness_up_short_action:
+      name: Button Two Short Press Action
+      description: Action to perform after pressing Button Two shortly
+      default: []
+      selector:
+        action: null
+    brightness_up_long_action:
+      name: Button Two Long Press Action
+      description: Action to perform after pressing Button Two for a long period
+      default: []
+      selector:
+        action: null
+    brightness_down_short_action:
+      name: Button Three Short Press Action
+      description: Action to perform after pressing Button Three shortly
+      default: []
+      selector:
+        action: null
+    brightness_down_long_action:
+      name: Button Three Long Press Action
+      description: Action to perform after pressing Button Three for a long period
+      default: []
+      selector:
+        action: null
+    off_short_action:
+      name: Button Four Short Press Action
+      description: Action to perform after pressing Button Four shortly
+      default: []
+      selector:
+        action: null
+    off_long_action:
+      name: Button Four Long Press Action
+      description: Action to perform after pressing Button Four for a long period
+      default: []
+      selector:
+        action: null
+mode: single
+trigger:
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: short_release
+    subtype: 1
+    id: one short
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: long_release
+    subtype: 1
+    id: one long
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: short_release
+    subtype: 2
+    id: two short
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: long_release
+    subtype: 2
+    id: two long
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: short_release
+    subtype: 3
+    id: three short
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: long_release
+    subtype: 3
+    d: three long
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: short_release
+    subtype: 4
+    id: four short
+  - device_id: dimmer_device
+    domain: hue
+    platform: device
+    type: long_release
+    subtype: 4
+    id: four long
+condition: []
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: one short
+        sequence: one_short_action
+      - conditions:
+          - condition: trigger
+            id: one long
+        sequence: one_long_action
+      - conditions:
+          - condition: trigger
+            id: two short
+        sequence: two_short_action
+      - conditions:
+          - condition: trigger
+            id: two long
+        sequence: two_short_action
+      - conditions:
+          - condition: trigger
+            id: three short
+        sequence: three_short_action
+      - conditions:
+          - condition: trigger
+            d: three long
+        sequence: three_short_action
+      - conditions:
+          - condition: trigger
+            id: four short
+        sequence: four_short_action
+      - conditions:
+          - condition: trigger
+            id: four long
+        sequence: four_short_action
+    default:
+      - service: persistent_notification.create
+        data:
+          message: Hue Tap Dial ran default event from "choose" action Button One button press!
+            Please check any automations which may not be handling this event!
+          notification_id: hue_dimmer_blueprint
+          title: Uncaught Dimmer Command
