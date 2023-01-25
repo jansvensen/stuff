@@ -1,7 +1,7 @@
+alias: Hue Tap Dial
 description: ""
-alias: ddd
 use_blueprint:
-  path: jansvensen/hue_tap_dial_switch_3.yaml
+  path: jansvensen/hue_tap_dial_switch_2.yaml
   input:
     dimmer_device: 523c6faf22572c24a47b61cd828e9071
     one_short_action:
@@ -9,6 +9,7 @@ use_blueprint:
         device_id: 7ac944bf87c322c613704d46d4eab51d
         entity_id: light.kueche_decke
         domain: light
+    one_long_action: []
     two_short_action:
       - type: toggle
         device_id: 57cda8799c3b6cc9dacfc13a7e4e651b
