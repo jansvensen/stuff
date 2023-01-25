@@ -3,7 +3,7 @@ blueprint:
   name: Hue Tap Dial
   description: Using a Hue bridge with which a Hue Tap Dial is paired
   domain: automation
-  source_url: https://github.com/jansvenen/stuff/ha-blueprints/hue_tap_dial_switch.yaml
+  source_url: https://github.com/jansvensen/stuff/blob/main/ha-blueprints/hue_tap_dial_switch.yaml
   input:
     dimmer_device:
       name: Dimmer Remote Device
@@ -12,50 +12,50 @@ blueprint:
         device:
           integration: hue
     on_short_action:
-      name: On Short Press Action
-      description: Action to perform after pressing ON shortly
+      name: Button One Short Press Action
+      description: Action to perform after pressing Button One shortly
       default: []
       selector:
         action: null
     on_long_action:
-      name: On Long Press Action
-      description: Action to perform after pressing ON for a long period
+      name: Button One Long Press Action
+      description: Action to perform after pressing Button One for a long period
       default: []
       selector:
         action: null
     brightness_up_short_action:
-      name: Brightness Up Short Press Action
-      description: Action to perform after pressing brightness up shortly
+      name: Button Two Short Press Action
+      description: Action to perform after pressing Button Two shortly
       default: []
       selector:
         action: null
     brightness_up_long_action:
-      name: Brightness Up Long Press Action
-      description: Action to perform after pressing brightness up for a long period
+      name: Button Two Long Press Action
+      description: Action to perform after pressing Button Two for a long period
       default: []
       selector:
         action: null
     brightness_down_short_action:
-      name: Brightness Down Short Press Action
-      description: Action to perform after pressing brightness down shortly
+      name: Button Three Short Press Action
+      description: Action to perform after pressing Button Three shortly
       default: []
       selector:
         action: null
     brightness_down_long_action:
-      name: Brightness Down Long Press Action
-      description: Action to perform after pressing brightness down for a long period
+      name: Button Three Long Press Action
+      description: Action to perform after pressing Button Three for a long period
       default: []
       selector:
         action: null
     off_short_action:
-      name: Off Short Press Action
-      description: Action to perform after pressing OFF shortly
+      name: Button Four Short Press Action
+      description: Action to perform after pressing Button Four shortly
       default: []
       selector:
         action: null
     off_long_action:
-      name: Off Long Press Action
-      description: Action to perform after pressing OFF for a long period
+      name: Button Four Long Press Action
+      description: Action to perform after pressing Button Four for a long period
       default: []
       selector:
         action: null
@@ -147,7 +147,7 @@ action:
     default:
       - service: persistent_notification.create
         data:
-          message: Hue Tap Dial ran default event from "choose" action on button press!
+          message: Hue Tap Dial ran default event from "choose" action Button One button press!
             Please check any automations which may not be handling this event!
           notification_id: hue_dimmer_blueprint
           title: Uncaught Dimmer Command
