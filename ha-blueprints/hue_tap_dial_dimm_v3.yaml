@@ -82,16 +82,16 @@ trigger:
     device_id: !input remote
 action:
 - variables:
-    command: '{{ trigger.event.data.command }}'
+    command: '{{ trigger.event.data.type }}'
+    subtype: '{{ trigger.event.data.subtype }}'
     args: '{{ trigger.event.data.args }}'
     params: '{{ trigger.event.data.params }}'
-    scene: '{{ trigger.event.data.params.scene_id }}'
     step_mode: '{{ trigger.event.data.params.step_mode }}'
     step_size: '{{ trigger.event.data.params.step_size }}'
 - choose:
   - conditions:
-    - '{{ command == ''recall'' }}'
-    - '{{ scene == 1 }}'
+    - '{{ command == ''short_release'' }}'
+    - '{{ subtype == 1 }}'
     sequence:
       - choose:
         - conditions: '{{ states(first_light.entity_id) == ''off'' }}'
@@ -116,9 +116,9 @@ action:
             data:
               value: '{{ ''first_light'' }}'
   - conditions:
-    - '{{ command == ''recall'' }}'
+    - '{{ command == ''short_release'' }}'
     - '{{ second_light != none }}'
-    - '{{ scene == 0 }}'
+    - '{{ subtype == 2 }}'
     sequence:
       - choose:
         - conditions: '{{ states(second_light.entity_id) == ''off'' }}'
@@ -143,9 +143,9 @@ action:
             data:
               value: '{{ ''second_light'' }}'
   - conditions:
-    - '{{ command == ''recall'' }}'
+    - '{{ command == ''short_release'' }}'
     - '{{ third_light != none }}'
-    - '{{ scene == 5 }}'
+    - '{{ subtype == 3 }}'
     sequence:
       - choose:
         - conditions: '{{ states(third_light.entity_id) == ''off'' }}'
@@ -170,9 +170,9 @@ action:
             data:
               value: '{{ ''third_light'' }}'
   - conditions:
-    - '{{ command == ''recall'' }}'
+    - '{{ command == ''short_release'' }}'
     - '{{ forth_light != none }}'
-    - '{{ scene == 4 }}'
+    - '{{ subtype == 4 }}'
     sequence:
       - choose:
         - conditions: '{{ states(forth_light.entity_id) == ''off'' }}'
