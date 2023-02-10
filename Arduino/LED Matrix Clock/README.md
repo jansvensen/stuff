@@ -12,7 +12,7 @@
 
 ## Implementation
 
-First run "set RTC time code": This will set the time to RTC module
-Next run "Clock Code": This is the display code.
+- First run "set RTC time code": This will set the time to RTC module
+- Next run "Clock Code": This is the display code.
 
 Compile the code to make sure you install all the required libraries.
