@@ -1,7 +1,6 @@
 #include <MD_Parola.h>
 #include <MD_MAX72xx.h>
 #include <SPI.h>
-#include "Font_Data.h"
 #include <DS3231.h>
 #include <Wire.h>
 DS3231 Clock;
@@ -140,7 +139,6 @@ void loop(void)
 
       case 2:
      
-     P.setFont(0, numeric7Seg);
      P.setTextEffect(0, PA_PRINT, PA_NO_EFFECT);
      P.setPause(0,0);
 
