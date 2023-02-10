@@ -67,7 +67,7 @@ void getTime(char *psz, bool f = true)
     sprintf(psz, "%02d%c%02d", h, (f ? ':' : ' '), m);
     if (Clock.getHour(h12,PM)>=13 || Clock.getHour(h12,PM)==0)
   {
-    h = Clock.getHour(h12,PM) - 12;
+    h = Clock.getHour(h12,PM);
   }
   else
   {
