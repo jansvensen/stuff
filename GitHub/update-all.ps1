@@ -3,6 +3,6 @@ Get-ChildItem C:\SharingTools\GIT\deviceTRUST-iac-resources | Where-Object{$_.Na
     cd $_.FullName
     git add *
     git commit --all -m "."
-    git push
+    # git push
 
 }
