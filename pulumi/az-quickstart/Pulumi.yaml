@@ -1,0 +1,3 @@
+name: azure-base
+description: A minimal Azure Native TypeScript Pulumi program
+runtime: nodejs
