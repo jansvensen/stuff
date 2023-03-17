@@ -1,4 +1,4 @@
-Get-ChildItem C:\SharingTools\GIT\jansvensen | Where-Object{$_.Name -like "*terraform*"} | ForEach-Object{
+Get-ChildItem C:\SharingTools\GIT\jansvensen | Where-Object{$_.Name -like "*ansible*"} | ForEach-Object{
 
     cd $_.FullName
     git add *
