@@ -3,6 +3,6 @@ Get-ChildItem C:\SharingTools\GIT\jansvensen | Where-Object{$_.Name -like "*ansi
     cd $_.FullName
     git add *
     git commit --all -m "."
-    git push
+    # git push
 
 }
