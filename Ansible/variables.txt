@@ -1,0 +1,27 @@
+# generating some AD objects
+domain_user: user1
+domain_user_password: '{{ domain_admin_password }}'
+domain_ous:
+  - { name: 'infra', path: '{{ domain_ou_base }}' }
+  - { name: 'groups', path: 'OU=infra,{{ domain_ou_base }}' }
+  - { name: 'users', path: 'OU=infra,{{ domain_ou_base }}' }
+  - { name: 'it', path: 'OU=users,OU=infra,{{ domain_ou_base }}' }
+  - { name: 'marketing', path: 'OU=users,OU=infra,{{ domain_ou_base }}' }
+  - { name: 'finance', path: 'OU=users,OU=infra,{{ domain_ou_base }}' }
+  - { name: 'sales', path: 'OU=users,OU=infra,{{ domain_ou_base }}' }
+  - { name: 'computers', path: 'OU=infra,{{ domain_ou_base }}' }
+domain_computers_ou_path: 'OU={{ domain_ous[7].name }},{{ domain_ous[7].path }}'
+domain_groups_ou_path: 'OU={{ domain_ous[1].name }},{{ domain_ous[1].path }}'
+domain_groups:
+  - { name: 'IT' }          # IT group will get admin permission in guacamole
+  - { name: 'Marketing' }
+  - { name: 'Finance' }
+  - { name: 'Sales' }
+domain_users_ou_path: 'OU={{ domain_ous[2].name }},{{ domain_ous[2].path }}'
+domain_user_ou_path_it: 'OU={{ domain_ous[3].name }},{{ domain_ous[3].path }}'
+domain_user_ou_path_marketing: 'OU={{ domain_ous[4].name }},{{ domain_ous[4].path }}'
+domain_user_ou_path_finance: 'OU={{ domain_ous[5].name }},{{ domain_ous[5].path }}'
+domain_user_ou_path_sales: 'OU={{ domain_ous[6].name }},{{ domain_ous[6].path }}'
+domain_users:
+  - { name: 'a-root', groups: ['IT'], ou_path: '{{ domain_user_ou_path_it }}' }   # a-root will become a domain admin
+  - { name: 'svc-sccm', groups: [], ou_path: '{{ domain_user_ou_path_it }}' }
