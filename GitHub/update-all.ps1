@@ -1,4 +1,4 @@
-Get-ChildItem C:\Sync-Tools\GIT\jansvensen | Where-Object{$_.Name -like "*ansible*"} | ForEach-Object{
+Get-ChildItem C:\Sync-Tools\GIT\jansvensen | ForEach-Object{
 
     cd $_.FullName
     # git add *
