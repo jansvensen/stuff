@@ -1,0 +1,15 @@
+---
+  - name: Make sure logging directory exists
+    ansible.windows.win_file:
+      path: '{{ directory_logging }}'
+      state: directory
+
+  - name: Bind GPOs
+    script: files/gpo-bind.ps1
+    args:
+      creates: '{{ directory_logging }}gpo-bind.txt'
+    environment:
+      target: '{{ item.target }}'
+      gpos: '{{ item.gpos }}'
+      domain: '{{ item.domain }}'
+    with_items: '{{ dc_gpo_bindings }}'

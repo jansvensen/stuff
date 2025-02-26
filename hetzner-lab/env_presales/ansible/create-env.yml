@@ -1,0 +1,84 @@
+---
+# windows-init
+- hosts: windows
+  roles:
+    - { role: ansible-role-win-all-base }
+
+# windows-dc-local
+- hosts: windows-dc-local
+  roles:
+    - { role: ansible-role-win-dc-base }
+    - { role: ansible-role-win-dc-ad-inst }
+    - { role: ansible-role-win-dc-ad-conf }
+    - { role: ansible-role-win-dc-dns-conf }
+    - { role: ansible-role-win-dc-ous-conf }
+    - { role: ansible-role-win-dc-users-create }
+    - { role: ansible-role-win-dc-groups-conf }
+
+# windows-client-domainjoin
+- hosts: windows-client
+  roles:
+    - { role: ansible-role-win-domainjoin }
+
+# windows-dc-domain
+- hosts: windows-dc-domain
+  roles: 
+    - { role: ansible-role-win-dc-computerobjects-conf }
+
+# windows-all-software
+- hosts: windows
+  roles:
+    - { role: ansible-role-win-sw-chocolatey }
+
+# citrix-base
+- hosts: citrix
+  roles:
+    - { role: ansible-role-win-citrix-base }
+
+# windows-sql
+- hosts: sql
+  roles:
+    - { role: ansible-role-win-sw-sqlexpress }
+
+# citrix-ctrl-setup
+- hosts: citrix-ctrl
+  roles:
+    - { role: ansible-role-win-citrix-storefront-inst }
+    - { role: ansible-role-win-citrix-storefront-conf }
+    - { role: ansible-role-win-citrix-ddc-inst }
+    - { role: ansible-role-win-citrix-ddc-site-create }
+    - { role: ansible-role-win-citrix-ddc-license }
+
+# citrix-rdsh
+- hosts: citrix-rdsh
+  roles:
+    - { role: ansible-role-win-citrix-rdsh-vda-inst }
+    - { role: ansible-role-win-citrix-rdsh-conf }  # Very deviceTRUST-Specific
+
+# citrix-ctrl-finish
+- hosts: citrix-ctrl
+  roles:
+    - { role: ansible-role-win-citrix-ddc-site-conf }
+
+# windows-dc-domain-gpo
+- hosts: windows-dc-domain
+  roles:
+    - { role: ansible-role-win-dc-gpo-import }
+    - { role: ansible-role-win-dc-gpo-bind }
+
+# windows-all-finish
+- hosts: windows
+  roles:
+    - { role: ansible-role-win-all-updates }
+    - { role: ansible-role-win-all-cleanup }
+
+# linux-logging
+- hosts: x_linux-logging
+  roles:
+   # - { role: ansible-role-linux-docker-logging }
+
+# linux-guacamole
+- hosts: linux-guacamole
+  roles:
+    - { role: ansible-role-linux-software-installation }
+    - { role: ansible-role-linux-docker-container-guacamole }

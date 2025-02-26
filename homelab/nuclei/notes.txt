@@ -1,0 +1,3 @@
+https://docs.projectdiscovery.io/tools/nuclei/running
+Base : nuclei -u %target%
+Custom Templates: nuclei -u %target% -t cves/ -t exposures/

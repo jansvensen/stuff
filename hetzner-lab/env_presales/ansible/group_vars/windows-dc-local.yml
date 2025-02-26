@@ -1,0 +1,138 @@
+---
+# Ansible variables
+ansible_user: vagrant
+ansible_password: ThisIsASecurePassword!2022
+
+dc:
+  dns:
+    upstream: 10.10.2.1
+    zone:
+      name: dt.presales
+    records:
+      - name: sf
+        ip: 10.10.2.101
+        type: A
+      - name: director
+        ip: 10.10.2.101
+        type: A
+  ntp:
+    servers: 0.us.pool.ntp.org,1.us.pool.ntp.org
+  domain:
+    ou:
+      objects: 'OU=Objects,DC={{ win_domain_netbios }},DC={{ win_domain_tld }}'
+      accounts: 'OU=Accounts,{{ dc_ou_objects }}'
+      accounts_user: 'OU=User,{{ dc_ou_accounts }}'
+      accounts_admin: 'OU=Admins,{{ dc_ou_accounts }}'
+      accounts_service: 'OU=Services,{{ dc_ou_accounts }}'
+      groups: 'OU=Groups,{{ dc_ou_objects }}'
+      groups_security: 'OU=Security,{{ dc_ou_groups }}'
+      computer: 'OU=Computer,{{ dc_ou_objects }}'
+    passwords:
+      admin: ThisIsASecurePassword!2022
+      user: deviceTRUST!2022
+      service: ThisIsASecurePassword!2022
+      safemode: ThisIsASecurePassword!2022
+    user:
+      admin: administrator@dt.presales
+      standard: [demo,demo01,demo02,demo03,demo04,demo05,demo06,demo07,demo08,demo09,demo10]
+      service: [svc_domainjoin,svc_ldap,svc_scoutbees]
+      admins: [vagrant]
+
+# DNS Configuration
+dc_dns_upstream: 10.10.2.1
+dc_dns_zone_name: dt.presales
+
+# NTP Configuration
+dc_ntp_servers: 0.us.pool.ntp.org,1.us.pool.ntp.org
+
+# OUs
+dc_ou_objects: 'OU=Objects,DC={{ win_domain_netbios }},DC={{ win_domain_tld }}'
+dc_ou_accounts: 'OU=Accounts,{{ dc_ou_objects }}'
+dc_ou_accounts_user: 'OU=User,{{ dc_ou_accounts }}'
+dc_ou_accounts_admin: 'OU=Admins,{{ dc_ou_accounts }}'
+dc_ou_accounts_service: 'OU=Services,{{ dc_ou_accounts }}'
+dc_ou_groups: 'OU=Groups,{{ dc_ou_objects }}'
+dc_ou_groups_security: 'OU=Security,{{ dc_ou_groups }}'
+dc_ou_computer: 'OU=Computer,{{ dc_ou_objects }}'
+
+# Passwords
+dc_password_admin: ThisIsASecurePassword!2022
+dc_password_user: deviceTRUST!2022
+dc_password_service: ThisIsASecurePassword!2022
+dc_password_safemode: ThisIsASecurePassword!2022
+
+# DNS Records
+dc_dns_records:
+  - name: sf
+    ip: 10.10.2.101
+    type: A
+  - name: director
+    ip: 10.10.2.101
+    type: A
+
+# OUs
+dc_ous_static:
+  - name: Objects
+    path: DC=dt,DC=presales
+  - name: Accounts
+    path: OU=Objects,DC=dt,DC=presales
+  - name: Computer
+    path: OU=Objects,DC=dt,DC=presales
+  - name: Groups
+    path: OU=Objects,DC=dt,DC=presales
+  - name: 02_Administration
+    path: OU=Computer,OU=Objects,DC=dt,DC=presales
+  - name: 03_Environment
+    path: OU=Computer,OU=Objects,DC=dt,DC=presales
+  - name: 04_Endpoints 
+    path: OU=Computer,OU=Objects,DC=dt,DC=presales
+  - name: Citrix
+    path: OU=03_Environment,OU=Computer,OU=Objects,DC=dt,DC=presales
+  - name: FatClient
+    path: OU=03_Environment,OU=Computer,OU=Objects,DC=dt,DC=presales
+  - name: User
+    path: OU=Accounts,OU=Objects,DC=dt,DC=presales
+  - name: Services
+    path: OU=Accounts,OU=Objects,DC=dt,DC=presales
+  - name: Admins
+    path: OU=Accounts,OU=Objects,DC=dt,DC=presales
+  - name: External
+    path: OU=Accounts,OU=Objects,DC=dt,DC=presales
+  - name: Demo
+    path: OU=Groups,OU=Objects,DC=dt,DC=presales
+  - name: Testing
+    path: OU=Groups,OU=Objects,DC=dt,DC=presales
+  - name: Security
+    path: OU=Groups,OU=Objects,DC=dt,DC=presales
+  - name: Software
+    path: OU=Groups,OU=Objects,DC=dt,DC=presales
+  - name: Webinar
+    path: OU=User,OU=Accounts,OU=Objects,DC=dt,DC=presales
+  - name: Testing
+    path: OU=User,OU=Accounts,OU=Objects,DC=dt,DC=presales
+
+# Groups
+dc_groups:
+  - name: g_g_sec_citrix_users
+    scope: global
+    path: 'OU=Security,OU=Groups,OU=Objects,DC=dt,DC=presales'
+
+# Users
+dc_user_standard: [demo,demo01,demo02,demo03,demo04,demo05,demo06,demo07,demo08,demo09,demo10]
+dc_user_service: [svc_domainjoin,svc_ldap,svc_scoutbees]
+dc_user_admins: [vagrant]
+dc_user_admin: administrator@dt.presales
+
+dc_groups_static:
+  - group: g_g_sec_citrix_users
+    scope: global
+    path: '{{ dc_ou_groups_security }}'
+    users: '{{ dc_user_standard }}'    
+  - group: g_g_sec_citrix_users
+    scope: global
+    path: '{{ dc_ou_groups_security }}'
+    users: 'svc_scoutbees'  
+  - group: Domain Admins
+    scope: global
+    path: ''
+    users: '{{ dc_user_admins }}'  

@@ -1,0 +1,3 @@
+# Add user localadmin to sudoers file and eliminate requirement for password
+visudo
+localadmin ALL=(ALL) NOPASSWD:ALL

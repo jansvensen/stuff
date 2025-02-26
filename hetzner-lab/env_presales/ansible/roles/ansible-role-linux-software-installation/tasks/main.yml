@@ -1,0 +1,7 @@
+---
+- name: Install software via apt
+  become: true
+  ansible.builtin.apt:  
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ linux_software_apt }}'

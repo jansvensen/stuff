@@ -1,0 +1,54 @@
+---
+  - name: Install packages with chocolatey
+    win_chocolatey:
+      name: '{{ item }}'
+      state: present
+    with_items: '{{ win_software_chocolatey_citrix }}'
+    register: changes_made
+      
+  - name: Install Printers # Very unique to the deviceTRUST environment.
+    win_shell: |
+      if(get-printerdriver -name "Generic / Text Only"){}else{Add-PrinterDriver -Name "Generic / Text Only"}
+      if(get-printer -name "Corporate"){}else{Add-Printer -Name "Corporate" -DriverName "Generic / Text Only" -PortName LPT1:}
+      if(get-printer -name "Floor 1"){}else{Add-Printer -Name "Floor 1" -DriverName "Generic / Text Only" -PortName LPT2:}
+      if(get-printer -name "Floor 2"){}else{Add-Printer -Name "Floor 2" -DriverName "Generic / Text Only" -PortName LPT3:}
+    args:
+        creates: '{{ directory_logging }}done-printer-install.txt'
+
+  - name: Copy FSLogix files
+    win_copy:
+      src: '{{ item }}'
+      dest: '{{ citrix.rdsh.fslogix.rulesfolder }}'
+    with_fileglob:
+      - "*.fxa"
+      - "*.fxr"
+
+  - name: Set DDC Reg Keys
+    ansible.windows.win_regedit:
+      path: HKLM:\Software\Citrix\VirtualDesktopAgent
+      name: ListOfDDCs
+      data: '{{ citrix.site.ddc }}'
+    register: changes_made
+
+  - name: Set DDC Reg Keys
+    ansible.windows.win_regedit:
+      path: HKLM:\Software\Wow6432Node\Citrix\VirtualDesktopAgent
+      name: ListOfDDCs
+      data: '{{ citrix.site.ddc }}'
+    register: changes_made
+
+  - name: Create Wallpaper Folder
+    win_file:
+      path: '{{ citrix.rdsh.misc.wallpaperfolder }}'
+      state: directory
+
+  - name: Copy Wallpaper
+    win_copy:
+      src: '{{ item }}'
+      dest: '{{ citrix.rdsh.misc.wallpaperfolder }}'
+    with_fileglob:
+      - "*.jpg"
+
+  - name: Reboot
+    ansible.windows.win_reboot:
+    when: changes_made.changed

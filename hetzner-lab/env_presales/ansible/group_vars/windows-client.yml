@@ -1,0 +1,20 @@
+---
+# Ansible variables
+ansible_user: vagrant
+ansible_password: ThisIsASecurePassword!2022
+
+
+# Domainjoin variables
+domainjoin_domain_name: dt.presales
+domainjoin_user_pw: ThisIsASecurePassword!2022
+domainjoin_user_name: svc_domainjoin@dt.presales
+domainjoin_ou: 'OU=Computer,OU=Objects,DC=dt,DC=presales'
+
+win:
+  domainjoin:
+    domain:
+      name: dt.presales
+    user:
+      pw: ThisIsASecurePassword!2022
+      name: svc_domainjoin@dt.presales
+    ou: 'OU=Computer,OU=Objects,DC=dt,DC=presales'

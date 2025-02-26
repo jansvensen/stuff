@@ -1,0 +1,16 @@
+---
+# Ansible variables
+ansible_user: dt\vagrant
+ansible_password: ThisIsASecurePassword!2022
+
+# SQL variables
+sql_instance_name: ANSIBLE
+sql_sa_pw: P@ssw0rd
+sql_prereqs: ['NET-Framework-Core','NET-Framework-Features','NET-Framework-45-Features','NET-Framework-45-Core','NET-Framework-45-ASPNET']
+
+sql:
+  instance:
+    name: ANSIBLE
+  user:
+    sa:
+      password: P@ssw0rd

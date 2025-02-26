@@ -1,0 +1,13 @@
+galaxy_info:
+
+  author: Sven Jansen
+  
+  description: ansible-role-win-dc-ad-user-reset
+
+  license: MIT
+
+  min_ansible_version: 2.10
+
+  galaxy_tags: []
+
+dependencies: []
