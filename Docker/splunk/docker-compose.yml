@@ -1,0 +1,19 @@
+volumes:
+  opt-splunk-etc:
+  opt-splunk-var:
+
+services:
+  splunk:
+    build: .
+    hostname: splunk
+    image: splunk/splunk:latest
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_PASSWORD: Banane2000!
+    volumes:
+      - opt-splunk-etc:/opt/splunk/etc
+      - opt-splunk-var:/opt/splunk/var
+      - /etc/letsencrypt/live/splunk.jansvensen.de:/opt/splunk/etc/auth/certs
+    ports:
+      - "8000:8000"
+      - "8088:8088"
