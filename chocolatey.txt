@@ -1,110 +1,40 @@
-7zip 24.9.0
-7zip.install 24.9.0
-adobereader 2025.1.20467
-autohotkey 2.0.19
-autohotkey.install 2.0.19
-autohotkey.portable 2.0.19
-bulkrenameutility 4.0.0.5
-calibre 8.4.0
-chocolatey 2.4.3
-chocolatey-compatibility.extension 1.0.0
-chocolatey-core.extension 1.4.0
-chocolatey-windowsupdate.extension 1.0.5
-choco-upgrade-all-at 0.1.0
-crystaldiskinfo 9.6.3
-cura-new 5.9.1
-DotNet4.6.1 4.6.1055.20170308
-dotnet-8.0-desktopruntime 8.0.16
-dotnet-9.0-desktopruntime 9.0.5
-dotnet-desktopruntime 9.0.5
-dupeguru 4.3.1
-Firefox 139.0.1
-Ghostscript 10.5.1
-Ghostscript.app 10.5.1
-git 2.49.0
-git.install 2.49.0
-greenshot 1.2.10.6
-irfanview 4.72.0
-irfanviewplugins 4.72.0
-iTunes 12.13.7.1
-jdownloader 2.0.0.2023
-KB2919355 1.0.20160915
-KB2919442 1.0.20160915
-KB2999226 1.0.20181019
-KB3033929 1.0.5
-KB3035131 1.0.3
-mRemoteNG 1.76.20.24615
-nmap 7.97.0
-notepadplusplus 8.8.1
-notepadplusplus.install 8.8.1
-orca 10.0.26100
-pdfsam 5.3.1
-pdfsam.install 5.3.1
-powertoys 0.91.1
-putty 0.83.0
-putty.portable 0.83.0
-rufus 4.7.0
-spotify 1.2.64.408
-synologydrive 3.5.0.16084
-tesseract 5.5.0.20241111
-thunderbird 128.7.1
-vcredist140 14.44.35208
-visualstudiocode 1.23.1.20180730
-vlc 3.0.21
-vlc.install 3.0.21
-vscode 1.100.2
-vscode.install 1.100.2
-w10privacy 5.1.0.2
-win32diskimager 1.0.0.20181220
-win32diskimager.install 1.0.0.20181220
-winscp 6.5.1
-winscp.install 6.5.1
-wireguard 0.5.3
-zoom 6.4.10.64378
-63 packages installed.
+7zip 
+adobereader 
+bulkrenameutility
+calibre
+cura-new
+dupeguru
+Firefox
+git
+greenshot
+irfanview
+irfanviewplugins
+mRemoteNG
+nmap
+notepadplusplus
+pdfsam
+powertoys
+putty
+rufus
+synologydrive
+visualstudiocode
+vlc
+win32diskimager
+winscp
+Mp3tag
+npcap
+wiztree
 
-AdGuardVPN|2.5.1700.0
-Adobe Lightroom Classic|14.2
-AMD Software|23.11.1
-Autodesk Fusion|2601.0.90
-AutoHotkey|2.0.19
-Bonjour|3.1.0.1
-Canon IJ Network Scanner Selector EX2|2.0.10.2
-Canon IJ Printer Assistant Tool|1.90.3.30
-Canon IJ Scan Utility|1.5.5.3
-Canon TS6300 series MP Drivers|1.03
-CrystalDiskInfo 9.6.2|9.6.2
-Garmin Express|7.25.0.0
-Google Drive|108.0.1.0
-HP Support Solutions Framework|12.18.34.21
-Microsoft OneDrive|25.085.0504.0002
-Microsoft Update Health Tools|5.72.0.0
-Microsoft Visual C++ 2008 Redistributable - KB2467174 - x86 9.0.30729.5570|9.0.30729.5570
-Microsoft Visual C++ 2008 Redistributable - x64 9.0.21022.218|9.0.21022.218
-Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.6161|9.0.30729.6161
-Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161|9.0.30729.6161
-Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030|11.0.61030.0
-Microsoft Windows Desktop Runtime - 8.0.16 (x64)|8.0.16.34817
-Microsoft Windows Desktop Runtime - 8.0.16 (x86)|8.0.16.34817
-Microsoft Windows Desktop Runtime - 9.0.5 (x64)|9.0.5.34816
-Microsoft Windows Desktop Runtime - 9.0.5 (x86)|9.0.5.34816
-Mp3tag v3.27|3.27
-Nmap 7.95|7.95
-Npcap|1.79
-OrcaSlicer|2.2.0
-PowerToys (Preview) x64|0.91.1
-Prisma Access Browser|137.8.5.56
-Raspberry Pi Imager|1.8.5
-RDP Wrapper Library|1.6.2
-Saal Design Software|4.0
-Signal 7.56.0|7.56.0
-SimCityT 3000 Unlimited|
-Steam|2.10.91.91
-Synology Assistant (remove only)|7.0.5-50070
-Windows 11 Installation Assistant|1.4.19041.3630
-Windows Driver Package - Dynastream Innovations, Inc. ANT LibUSB Drivers (04/11/2012 1.2.40.201)|04/11/2012 1.2.40.201
-Windows Driver Package - Garmin (grmnusb) GARMIN Devices  (04/19/2012 2.3.1.0)|04/19/2012 2.3.1.0
-Windows Driver Package - Silicon Labs Software (DSI_SiUSBXp_3_1) USB  (02/06/2007 3.1)|02/06/2007 3.1
-WizTree v4.24|4.24
-Yamaha Steinberg USB Driver|2.1.8
-Zyxel One Network Utility 2.1.6|2.1.6
+choco install --y 7zip adobereader bulkrenameutilitycalibre cura-new dupeguru Firefox git greenshot irfanview irfanviewplugins mRemoteNG nmap notepadplusplus pdfsam powertoys putty rufus synologydrive visualstudiocode vlc win32diskimager winscp Mp3tag npcap wiztree 
+
+# AdGuardVPN
+# Adobe Lightroom Classic
+# Autodesk Fusion
+# Canon TS6300 series MP Drivers
+# Garmin Express|7.25.0.0
+# Google Drive|108.0.1.0
+# Prisma Access Browser|137.8.5.56
+# Raspberry Pi Imager|1.8.5
+# Saal Design Software|4.0
+# Yamaha Steinberg USB Driver|2.1.8
+# Zyxel One Network Utility 2.1.6|2.1.6 
