@@ -1,6 +1,0 @@
-Error: null value is not allowed: [{{} iso_urls} {{} {{{{} 78}} 0xc000aa8cc0}}]
-
-  on templates/ubuntu/20/linux-ubuntu-server.pkr.hcl line 29:
-  (source code not available)
-
-

@@ -1,0 +1,21 @@
+---
+# windows-init
+- hosts: windows
+  roles:
+    - { role: ansible-role-win-all-base }
+
+# windows-client-domainjoin
+- hosts: windows-client
+  roles:
+    - { role: ansible-role-win-domainjoin }
+
+# windows-all-software
+- hosts: windows
+  roles:
+    - { role: ansible-role-win-sw-chocolatey }
+
+# windows-all-finish
+- hosts: windows
+  roles:
+    - { role: ansible-role-win-all-updates }
+    - { role: ansible-role-win-all-cleanup }

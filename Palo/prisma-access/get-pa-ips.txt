@@ -1,5 +1,0 @@
-{
-    "serviceType": "all",   
-    "addrType": "active",
-    "location": "deployed"
-}

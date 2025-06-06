@@ -1,0 +1,25 @@
+---
+# Ansible variables
+ansible_user: dt\vagrant
+ansible_password: ThisIsASecurePassword!2022
+
+# Computer Objects
+dc_computer_objects:
+  - name: ctx-ctrl-01
+    ou: 'OU=02_Administration,{{ dc_ou_computer }}'
+  - name: ctx-rdsh-01
+    ou: 'OU=Citrix,OU=03_Environment,{{ dc_ou_computer }}'
+
+dc_gpo_bindings:
+    - target: "OU=Objects,DC=dt,DC=democloud"
+      gpos: GPO_C_IPv6,GPO_C_PowerSettings,GPO_U_Optics_Wallpaper,GPO_U_Optics_User
+      domain: '{{ win_domain_dnsname }}'
+    - target: "OU=Computer,OU=Objects,DC=dt,DC=democloud"
+      gpos: GPO_C_DisableServerManagerOnStartup,GPO_C_LoopbackProcessing,GPO_C_NewsAndInterests,GPO_C_deviceTRUST_Geolocation_Google,GPO_C_RegionSettings,GPO_C_deviceTRUST_Basic,GPO_C_deviceTRUST_Demo_Demobox
+      domain: '{{ win_domain_dnsname }}'
+
+win_software_chocolatey: ['dt-console']
+
+win:
+  software:
+    chocolatey: ['dt-console']

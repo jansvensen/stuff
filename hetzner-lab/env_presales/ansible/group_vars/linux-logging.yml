@@ -1,6 +1,0 @@
----
-linux:
-  logging:
-    prerequisites: [apt-transport-https,ca-certificates,curl,git,software-properties-common,docker,docker-compose,docker.io]
-    gitfolder: '/home/vagrant/git/'
-    githubrepository: 'https://github.com/deviceTRUST/democloud-docker-logging.git'

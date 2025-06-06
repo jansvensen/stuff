@@ -1,5 +1,0 @@
----
-# windows-all-finish
-- hosts: windows
-  roles:
-    - { role: ansible-role-win-all-updates }

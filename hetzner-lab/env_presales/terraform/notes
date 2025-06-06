@@ -1,2 +1,0 @@
-terraform state list
-terraform apply -replace=vsphere_virtual_machine.s2022-citrix[0]

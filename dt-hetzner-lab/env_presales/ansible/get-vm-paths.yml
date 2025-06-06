@@ -1,0 +1,8 @@
+- name: Find Guest's Folder using name
+  vmware_guest_find:
+    hostname: "10.10.99.3"
+    username: "administrator@vsphere.local"
+    password: "deviceTRUST!2022"
+    name: dem-inf-dc-01
+  delegate_to: localhost
+  register: vm_folder

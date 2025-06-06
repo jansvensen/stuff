@@ -1,0 +1,44 @@
+[all]
+10.10.1.10 hostname=inf-dc-01
+10.10.1.101 hostname=citrix-ctrl-01
+10.10.1.102 hostname=citrix-rdsh-01
+10.10.1.151 hostname=inf-logging-01
+10.10.1.161 hostname=inf-guacamole-01
+
+[windows]
+10.10.1.10
+10.10.1.101
+10.10.1.102
+
+[windows-client]
+10.10.1.101
+10.10.1.102
+
+[windows-dc-local]
+10.10.1.10
+
+[windows-dc-domain]
+10.10.1.10
+
+[citrix]
+10.10.1.101
+10.10.1.102
+
+[citrix-ctrl]
+10.10.1.101
+
+[citrix-rdsh]
+10.10.1.102
+
+[sql]
+10.10.1.101
+
+[linux]
+10.10.1.151
+10.10.1.161
+
+[linux-guacamole]
+10.10.1.161
+
+[linux-logging]
+10.10.1.151

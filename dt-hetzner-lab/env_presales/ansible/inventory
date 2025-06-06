@@ -1,0 +1,56 @@
+[all]
+10.10.2.10 hostname=inf-dc-01
+10.10.2.101 hostname=ctx-ctrl-01
+10.10.2.102 hostname=ctx-rdsh-01
+10.10.2.151 hostname=inf-logging-01
+10.10.2.161 hostname=inf-guac-01
+10.10.2.111 hostname=prl-ras-01
+10.10.2.121 hostname=client-win10-01
+10.10.2.122 hostname=client-win10-02
+
+[windows]
+10.10.2.10
+10.10.2.101
+10.10.2.102
+10.10.2.111
+10.10.2.121
+10.10.2.122
+
+[windows-client]
+10.10.2.101
+10.10.2.102
+10.10.2.111
+10.10.2.121
+10.10.2.122
+
+[windows-dc-local]
+10.10.2.10
+
+[windows-dc-domain]
+10.10.2.10
+
+[citrix]
+10.10.2.101
+10.10.2.102
+
+[citrix-ctrl]
+10.10.2.101
+
+[citrix-rdsh]
+10.10.2.102
+
+[sql]
+10.10.2.101
+
+[linux]
+10.10.2.151
+10.10.2.161
+
+[linux-guacamole]
+10.10.2.161
+
+[linux-logging]
+10.10.2.151
+
+[parallels-ras]
+10.10.2.111

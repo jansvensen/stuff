@@ -1,0 +1,37 @@
+#####
+# vSphere attributes
+##### 
+
+vsphere_server      = ""
+vsphere_username    = ""
+vsphere_password    = ""
+vsphere_datacenter  = ""
+vsphere_host        = ""
+vsphere_network     = ""
+vsphere_datastore   = ""
+
+#####
+# VM attributes
+##### 
+vm_cpu_num          = 2
+vm_disk_size        = 102400
+vm_mem_size         = 4096
+vm_vmtools_iso_path = "[Sources] vmware-tools/VMware-Tools-windows-11.3.5-18557794.iso"
+vm_floppy_pvscsi    = "[Sources] vmware-floppies/pvscsi-Windows8.flp"
+
+#####
+# WinRM attributes / Needs to match "/http/user-data"
+##### 
+winrm_username      = "vagrant"
+winrm_password      = "vagrant"
+
+#####
+# Cloud init files / required for unattended installation
+##### 
+cloudinit_userdata  = "./http/user-data"
+cloudinit_metadata  = "./http/meta-data"
+
+#####
+# Cleanup script
+##### 
+shell_scripts       = ["./setup/setup.sh"]

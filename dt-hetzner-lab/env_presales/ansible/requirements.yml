@@ -1,0 +1,39 @@
+# Generic Windows requirements
+- src: https://github.com/jansvensen/ansible-role-win-all-base
+- src: https://github.com/jansvensen/ansible-role-win-domainjoin
+
+# Windows DC requirements
+- src: https://github.com/jansvensen/ansible-role-win-dc-base
+- src: https://github.com/jansvensen/ansible-role-win-dc-ad-inst
+- src: https://github.com/jansvensen/ansible-role-win-dc-ad-conf
+- src: https://github.com/jansvensen/ansible-role-win-dc-dns-conf
+- src: https://github.com/jansvensen/ansible-role-win-dc-ous-conf
+- src: https://github.com/jansvensen/ansible-role-win-dc-groups-conf
+- src: https://github.com/jansvensen/ansible-role-win-dc-users-create
+- src: https://github.com/jansvensen/ansible-role-win-dc-users-conf
+- src: https://github.com/jansvensen/ansible-role-win-dc-gpo-import
+- src: https://github.com/jansvensen/ansible-role-win-dc-gpo-bind
+- src: https://github.com/jansvensen/ansible-role-win-dc-computerobjects-conf
+- src: https://github.com/jansvensen/ansible-role-win-dc-ad-user-reset
+
+# Generic Software requirements
+- src: https://github.com/jansvensen/ansible-role-win-sw-sqlexpress
+
+# Citrix requirements
+- src: https://github.com/jansvensen/ansible-role-win-citrix-base
+- src: https://github.com/jansvensen/ansible-role-win-citrix-storefront-inst
+- src: https://github.com/jansvensen/ansible-role-win-citrix-storefront-conf
+- src: https://github.com/jansvensen/ansible-role-win-citrix-ddc-inst
+- src: https://github.com/jansvensen/ansible-role-win-citrix-ddc-site-create
+- src: https://github.com/jansvensen/ansible-role-win-citrix-ddc-license
+- src: https://github.com/jansvensen/ansible-role-win-citrix-rdsh-vda-inst
+- src: https://github.com/jansvensen/ansible-role-win-citrix-rdsh-conf
+- src: https://github.com/jansvensen/ansible-role-win-citrix-ddc-site-conf
+- src: https://github.com/jansvensen/ansible-role-win-sw-chocolatey
+- src: https://github.com/jansvensen/ansible-role-win-all-updates
+- src: https://github.com/jansvensen/ansible-role-win-all-cleanup
+
+# Linux requirements
+- src: https://github.com/jansvensen/ansible-role-linux-docker-container-guacamole
+- src: https://github.com/jansvensen/ansible-role-linux-docker-logging
+- src: https://github.com/jansvensen/ansible-role-linux-software-installation

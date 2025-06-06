@@ -1,0 +1,28 @@
+---
+#####################################
+### Add users to groups statically
+#####################################
+
+- name: Add users to groups statically
+  microsoft.ad.user:
+    name: '{{ item.name }}'
+    groups: 
+        add: 
+            '{{ item.group }}'
+  with_items: "{{ dc_groupmember }}"
+  when: dc_groupmember_static is defined
+
+#####################################
+### Add users to groups dynamically
+#####################################
+
+- name: Add users to groups dynamically
+  microsoft.ad.user:
+    name: "{{ item.0.name | replace('##', item.1) }}"
+    groups: 
+        add: 
+            "{{ item.0.group | replace('##', item.1) }}"
+  with_nested:
+  - '{{ dc_groupmember_dynamic }}'
+  - '{{ range(1, dc_domain_count + 1, 1) | list }}'
+  when: dc_groupmember_dynamic is defined

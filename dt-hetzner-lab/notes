@@ -1,0 +1,18 @@
+DeviceNameArray=("name1" "name2" "name3" "name4" "name5" "name6" "name7" "name8" "name9" "name10")
+
+# Get a random index from DeviceNameArray
+randomIndex=$((RANDOM % 10))
+
+# Get a random number between 1000 and 100000
+randomNumber=$((RANDOM % (100000 - 1000 + 1) + 1000))
+
+# Concatenate the random name and random number
+DeviceName="${DeviceNameArray[$randomIndex]}$randomNumber"
+
+echo "$DeviceName"
+
+curl 'https://api.github.com/repos/actions/runner/releases/latest' | jq '.name' | tr -d '"' | tr -d 'v')" >> $GITHUB_EN
+
+sudo systemclt set-default multi-user.target
+
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null

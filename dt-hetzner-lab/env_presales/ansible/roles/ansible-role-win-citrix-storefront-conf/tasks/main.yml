@@ -1,0 +1,38 @@
+---
+  - name: Create Log Folder
+    win_file:
+      path: '{{ directory_logging }}'
+      state: directory
+
+  - name: Create SF Vars
+    script: createsfvars.ps1
+    args:
+      creates: '{{ directory_logging }}\sf-vars.xml'
+    environment:
+      citrix_storefront_HostbaseUrl: "{{ citrix.storefront.hostbaseurl }}"
+      citrix_storefront_FarmServers: "{{ citrix.storefront.farmservers }}"
+      citrix_storefront_StoreVirtualPath: "{{ citrix.storefront.path }}"
+      citrix_storefront_TransportType: "{{ citrix.storefront.transporttype }}"
+      citrix_storefront_GatewayUrl: "{{ citrix.storefront.gateway.url }}"
+      citrix_storefront_GatewaySTAUrls: "{{ citrix.storefront.gateway.staurl }}"
+      citrix_storefront_GatewayName: "{{ citrix.storefront.gateway.name }}"
+
+  - name: Copy script
+    win_copy:
+      src: '{{ item }}'
+      dest: '{{ win_directory_install }}'
+    with_fileglob:
+      - "*.ps1"
+
+  - name: Sleep for 30 seconds
+    ansible.builtin.wait_for:
+      timeout: 30
+    delegate_to: localhost
+
+  - name: Configure Storefront
+    script: files/createsfsite.ps1
+
+  - name: Sleep for 180 seconds
+    ansible.builtin.wait_for:
+      timeout: 180
+    delegate_to: localhost

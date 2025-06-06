@@ -1,1 +1,0 @@
-# ansible-role-win-dc-ad-user-reset

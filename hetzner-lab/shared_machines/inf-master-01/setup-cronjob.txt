@@ -1,2 +1,0 @@
-crontab -e
-@reboot sleep 30 && /home/localadmin/actions-runner/run.sh

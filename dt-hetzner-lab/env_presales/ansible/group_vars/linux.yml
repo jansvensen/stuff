@@ -1,0 +1,7 @@
+---
+# Ansible variables
+ansible_connection: ssh
+ansible_pipelining: true
+ansible_user: vagrant
+ansible_password: vagrant
+# ansible_password: ThisIsASecurePassword!2022

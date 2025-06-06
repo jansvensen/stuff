@@ -1,0 +1,7 @@
+---
+- name: Install packages with chocolatey
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+    ignore_checksums: true # 2023-12-19: Required due to FSLogix coming with unmatching Checksum
+  with_items: '{{ win_software_chocolatey }}'

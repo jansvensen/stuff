@@ -1,0 +1,30 @@
+---
+#####################################
+### Create Groups
+#####################################
+- name: Add groups to AD
+  microsoft.ad.group:
+    name: '{{ item.group }}'
+    scope: '{{ item.scope }}'
+    path: '{{ item.path }}'
+    members:
+      add: '{{ item.users }}'
+    state: present
+  with_items: '{{ dc_groups_static }}'
+  when:  dc_groups_static is defined
+
+
+#####################################
+### Create dynamic Groups
+#####################################
+
+- name: Add groups to AD dynamically
+  microsoft.ad.group:
+    name: "{{ item.0.name | replace('##', item.1) }}"
+    scope: "{{ item.0.scope }}"
+    path: "{{ item.0.path | replace('##', item.1) }}"
+    state: present
+  with_nested:
+  - "{{ dc_groups_dynamic }}"
+  - "{{ range(1, dc_domain_count + 1, 1) | list }}"
+  when: dc_groups_dynamic is defined
