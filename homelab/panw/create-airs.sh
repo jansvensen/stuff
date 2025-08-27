@@ -1,5 +1,5 @@
-qm create 309 \
---name inf-ngfw-09 \
+qm create 401 \
+--name inf-airs-01 \
 --agent enabled=1 \
 --machine q35 \
 --bios seabios \
@@ -14,9 +14,9 @@ qm create 309 \
 --boot order='virtio0' \
 --hotplug disk,network,usb,cpu \
 --net0 virtio,bridge=vmbr0 \
---net1 virtio,bridge=vmbr0 \
---net2 virtio,bridge=vmbr0,tag=10
+--net1 virtio,bridge=vmbr0,tag=12
+--net2 virtio,bridge=vmbr0,tag=13
 
-qm importdisk 309 /home/images/PA-VM-KVM-11.1.4.qcow2 local-lvm --format qcow2
+qm importdisk 401 /home/images/PA-VM-KVM-11.2.5-h1.aingfw.qcow2 local-lvm --format qcow2
 
-qm set 309 --virtio0 local-lvm:vm-309-disk-0,discard=on,cache=writeback
+qm set 401 --virtio0 local-lvm:vm-401-disk-0,discard=on,cache=writeback
