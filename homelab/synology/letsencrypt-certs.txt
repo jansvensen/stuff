@@ -1,0 +1,16 @@
+1. Create API Token in Cloudflare
+2. add user "certadmin" to synology
+3. connect via ssh and follow https://dr-b.io/post/Synology-DSM-7-with-Lets-Encrypt-and-DNS-Challenge
+
+./acme.sh --register-account -m acme@jansvensen.de
+# ACCOUNT_THUMBPRINT='r4uwUayHK-fT7lEsvK9m5qguUCTF-PuHBpe7zpoihek'
+
+# For a single domain or multiple domains within the same Cloudflare account
+export CF_Token="YepoumLdvoyY_SWtAdqICLQm8AFUsTZopXZZlNI3"
+export CF_Account_ID="83f6c4d36f00752fe9fca8b40abce7b7"
+./acme.sh --issue --dns dns_cf -d jansvensen.de -d '*.jansvensen.de'
+
+
+
+curl "https://api.cloudflare.com/client/v4/accounts/83f6c4d36f00752fe9fca8b40abce7b7/tokens/verify" \
+     -H "Authorization: Bearer YepoumLdvoyY_SWtAdqICLQm8AFUsTZopXZZlNI3"
